@@ -1,33 +1,109 @@
 <UserControl x:Class="LoLTracker.Views.MatchHistoryView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <Grid Margin="12">
-        <DataGrid ItemsSource="{Binding Matches}"
-                AutoGenerateColumns="False"
-                IsReadOnly="True">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Date"
-                        Binding="{Binding Date, StringFormat=yyyy-MM-dd HH:mm}"
-                        Width="160"/>
-                <DataGridTextColumn Header="Champion"
-                        Binding="{Binding Champion}"
-                        Width="*"/>
-                <DataGridTextColumn Header="Result"
-                        Binding="{Binding IsWin, Converter={StaticResource BoolToResultConverter}}"/>
-                <DataGridTextColumn Header="Notes"
-                        Binding="{Binding Notes}"
-                        Width="2*"/>
-                <DataGridTemplateColumn Header="Actions"
-                        Width="120">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Button Content="Delete"
-                                    Command="{Binding DataContext.DeleteCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
-                                    CommandParameter="{Binding}"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-            </DataGrid.Columns>
-        </DataGrid>
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Background="Transparent">
+    <Grid Margin="24" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <TextBlock Text="Match History"
+                   Style="{StaticResource HeaderText}"
+                   Grid.Row="0"/>
+
+        <!-- DataGrid Card -->
+        <Border Grid.Row="1"
+                Background="{StaticResource CardBackground}"
+                BorderBrush="{StaticResource CardBorder}"
+                BorderThickness="1"
+                CornerRadius="8"
+                Padding="0">
+            <Border.Effect>
+                <DropShadowEffect Color="#FF000000" Opacity="0.2" BlurRadius="8" ShadowDepth="2"/>
+            </Border.Effect>
+            <DataGrid ItemsSource="{Binding Matches}"
+                      AutoGenerateColumns="False"
+                      IsReadOnly="True"
+                      BorderThickness="0"
+                      Background="Transparent">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Date"
+                                        Binding="{Binding Date, StringFormat=yyyy-MM-dd HH:mm}"
+                                        Width="180"/>
+                    <DataGridTextColumn Header="Champion"
+                                        Binding="{Binding Champion}"
+                                        Width="*">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="Foreground" Value="{StaticResource PrimaryAccent}"/>
+                                <Setter Property="FontWeight" Value="SemiBold"/>
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="Result"
+                                        Binding="{Binding IsWin, Converter={StaticResource BoolToResultConverter}}"
+                                        Width="120">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="HorizontalAlignment" Value="Center"/>
+                                <Setter Property="FontWeight" Value="Bold"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding IsWin}" Value="True">
+                                        <Setter Property="Foreground" Value="{StaticResource WinColor}"/>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding IsWin}" Value="False">
+                                        <Setter Property="Foreground" Value="{StaticResource LossColor}"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="Notes"
+                                        Binding="{Binding Notes}"
+                                        Width="2*"/>
+                    <DataGridTemplateColumn Header="Actions"
+                                            Width="120">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Delete"
+                                        Command="{Binding DataContext.DeleteCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                        CommandParameter="{Binding}"
+                                        Background="#FFF0284C"
+                                        Foreground="White"
+                                        BorderThickness="0"
+                                        Padding="12,4"
+                                        FontSize="12"
+                                        Cursor="Hand">
+                                    <Button.Style>
+                                        <Style TargetType="Button">
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="Button">
+                                                        <Border Background="{TemplateBinding Background}"
+                                                                CornerRadius="4"
+                                                                BorderThickness="0">
+                                                            <ContentPresenter HorizontalAlignment="Center" 
+                                                                              VerticalAlignment="Center"
+                                                                              Content="{TemplateBinding Content}"/>
+                                                        </Border>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="Background" Value="#FFD91E3D"/>
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Button.Style>
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Border>
     </Grid>
 </UserControl>

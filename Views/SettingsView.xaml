@@ -1,39 +1,155 @@
 <UserControl x:Class="LoLTracker.Views.SettingsView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d">
+             Background="Transparent">
+    <Grid Margin="24" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
 
-    <Grid Background="#1E1E1E"
-            Margin="20">
-        <StackPanel>
-            <TextBlock Text="Settings"
-                       Foreground="White"
-                       FontSize="24"
-                       Margin="0 0 0 20"/>
+        <!-- Header -->
+        <TextBlock Text="Settings"
+                   Style="{StaticResource HeaderText}"
+                   Grid.Row="0"/>
 
-            <TextBlock Text="Summoner Name"
-                       Foreground="White"
-                       Margin="0 0 0 5"/>
+        <!-- Settings Card -->
+        <Border Grid.Row="1"
+                Background="{StaticResource CardBackground}"
+                BorderBrush="{StaticResource CardBorder}"
+                BorderThickness="1"
+                CornerRadius="8"
+                Padding="32"
+                MaxWidth="500">
+            <Border.Effect>
+                <DropShadowEffect Color="#FF000000" Opacity="0.2" BlurRadius="8" ShadowDepth="2"/>
+            </Border.Effect>
+            <StackPanel>
+                <!-- Summoner Name Section -->
+                <TextBlock Text="SUMMONER NAME"
+                           Style="{StaticResource StatLabel}"
+                           Margin="0,0,0,8"/>
+                <TextBox Text="{Binding SummonerName}"
+                         Margin="0,0,0,24"
+                         FontSize="14"
+                         Padding="12,8"/>
 
-            <TextBox Text="{Binding SummonerName}"
-                     Width="200"
-                     Margin="0 0 0 10"/>
+                <!-- Save Button -->
+                <Button Content="Save Settings"
+                        Command="{Binding SaveCommand}"
+                        MinWidth="180"
+                        Margin="0,0,0,32"
+                        FontSize="14"/>
 
-            <Button Content="Save Settings"
-                    Width="150"
-                    Margin="0 10 0 20"
-                    Command="{Binding SaveSettingsCommand}"/>
+                <!-- Divider -->
+                <Border Height="1"
+                        Background="{StaticResource CardBorder}"
+                        Margin="0,0,0,32"/>
 
-            <Separator Margin="0 20 0 20"/>
+                <!-- Player Management Section -->
+                <TextBlock Text="PLAYER MANAGEMENT"
+                           Style="{StaticResource StatLabel}"
+                           Margin="0,0,0,8"/>
+                <TextBlock Text="Add players that can be selected when logging matches."
+                           Foreground="{StaticResource TextSecondary}"
+                           FontSize="12"
+                           TextWrapping="Wrap"
+                           Margin="0,0,0,12"/>
+                <Grid Margin="0,0,0,16">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox Grid.Column="0"
+                             Text="{Binding NewPlayerName, UpdateSourceTrigger=PropertyChanged}"
+                             Margin="0,0,8,0"
+                             FontSize="14"
+                             Padding="12,8"
+                             VerticalContentAlignment="Center">
+                        <TextBox.ToolTip>
+                            <TextBlock Text="Enter a new player name"/>
+                        </TextBox.ToolTip>
+                    </TextBox>
+                    <Button Grid.Column="1"
+                            Content="+ Add Player"
+                            Command="{Binding AddPlayerCommand}"
+                            MinWidth="120"
+                            FontSize="14"/>
+                </Grid>
 
-            <Button Content="Clear All Data"
-                    Width="150"
-                    Background="DarkRed"
-                    Foreground="White"
-                    Command="{Binding ClearAllDataCommand}"/>
-        </StackPanel>
+                <!-- Player List -->
+                <TextBlock Text="Existing Players:"
+                           Style="{StaticResource StatLabel}"
+                           Margin="0,0,0,8"/>
+                <Border Background="{StaticResource InputBackground}"
+                        BorderBrush="{StaticResource CardBorder}"
+                        BorderThickness="1"
+                        CornerRadius="4"
+                        MaxHeight="200"
+                        Margin="0,0,0,32">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <ItemsControl ItemsSource="{Binding PlayerNames}"
+                                      Margin="8">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding}"
+                                               Foreground="{StaticResource TextPrimary}"
+                                               FontSize="13"
+                                               Margin="8,4"
+                                               Padding="8,4"/>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </ScrollViewer>
+                </Border>
+
+                <!-- Divider -->
+                <Border Height="1"
+                        Background="{StaticResource CardBorder}"
+                        Margin="0,0,0,32"/>
+
+                <!-- Danger Zone -->
+                <TextBlock Text="DANGER ZONE"
+                           Style="{StaticResource StatLabel}"
+                           Foreground="{StaticResource LossColor}"
+                           Margin="0,0,0,12"/>
+                <TextBlock Text="This will permanently delete all match records and statistics."
+                           Foreground="{StaticResource TextSecondary}"
+                           FontSize="12"
+                           TextWrapping="Wrap"
+                           Margin="0,0,0,16"/>
+                <Button Content="Clear All Data"
+                        Command="{Binding ClearAllCommand}"
+                        Background="#FFF0284C"
+                        Foreground="White"
+                        BorderThickness="0"
+                        MinWidth="180"
+                        FontSize="14"
+                        Cursor="Hand">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Background="{TemplateBinding Background}"
+                                                CornerRadius="4"
+                                                BorderThickness="0">
+                                            <ContentPresenter HorizontalAlignment="Center" 
+                                                              VerticalAlignment="Center"
+                                                              Content="{TemplateBinding Content}"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#FFD91E3D"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+            </StackPanel>
+        </Border>
     </Grid>
-
 </UserControl>

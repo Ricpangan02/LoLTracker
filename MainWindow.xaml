@@ -1,37 +1,84 @@
 <Window x:Class="LoLTracker.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="LoL Tracker"
-        Height="600"
-        Width="1000">
-        <DockPanel>
-                <!-- Sidebar -->
-                <StackPanel DockPanel.Dock="Left"
-                            Width="180"
-                            Background="{StaticResource PanelBackground}">
-                        <TextBlock Text="LoL Tracker"
-                                   FontSize="20"
-                                   Margin="12"/>
-                        <Button Content="Dashboard"
-                                Command="{Binding GoDashboard}"/>
-                        <Button Content="Log Match"
-                                Command="{Binding GoLogMatch}"/>
-                        <Button Content="History"
-                                Command="{Binding GoHistory}"/>
-                        <Button Content="Champions"
-                                Command="{Binding GoChampions}"/>
-                        <Button Content="Settings"
-                                Command="{Binding GoSettings}"/>
-                        <StackPanel Margin="8"
-                                    VerticalAlignment="Bottom">
-                                <TextBlock Text="Summoner:"
-                                           Margin="6,12,6,0"/>
-                                <TextBlock Text="{Binding SummonerName}"
-                                           Margin="6,0"/>
-                        </StackPanel>
+        Title="Arena Tracker"
+        Height="700"
+        Width="1200"
+        WindowStartupLocation="CenterScreen">
+    <DockPanel Background="{StaticResource WindowBackground}">
+        <!-- Sidebar -->
+        <Border DockPanel.Dock="Left"
+                Width="220"
+                Background="{StaticResource PanelGradient}"
+                BorderBrush="{StaticResource CardBorder}"
+                BorderThickness="0,0,1,0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                
+                <!-- Header -->
+                <Border Grid.Row="0"
+                        Background="#FF252B47"
+                        Padding="20,24"
+                        BorderBrush="{StaticResource CardBorder}"
+                        BorderThickness="0,0,0,1">
+                    <StackPanel>
+                        <TextBlock Text="⚔️ Arena Tracker"
+                                   FontSize="22"
+                                   FontWeight="Bold"
+                                   Foreground="{StaticResource PrimaryAccent}"/>
+                        <TextBlock Text="Summoner's Rift"
+                                   FontSize="11"
+                                   Foreground="{StaticResource TextSecondary}"
+                                   Margin="0,4,0,0"/>
+                    </StackPanel>
+                </Border>
+                
+                <!-- Navigation -->
+                <StackPanel Grid.Row="1"
+                            Margin="8,16,8,8">
+                    <Button Content="📊 Dashboard"
+                            Command="{Binding GoDashboard}"
+                            Style="{StaticResource SidebarButton}"/>
+                    <Button Content="➕ Log Match"
+                            Command="{Binding GoLogMatch}"
+                            Style="{StaticResource SidebarButton}"/>
+                    <Button Content="📜 History"
+                            Command="{Binding GoHistory}"
+                            Style="{StaticResource SidebarButton}"/>
+                    <Button Content="🏆 Champions"
+                            Command="{Binding GoChampions}"
+                            Style="{StaticResource SidebarButton}"/>
+                    <Button Content="⚙️ Settings"
+                            Command="{Binding GoSettings}"
+                            Style="{StaticResource SidebarButton}"/>
                 </StackPanel>
+                
+                <!-- Footer -->
+                <Border Grid.Row="2"
+                        Background="#FF252B47"
+                        Padding="16,12"
+                        BorderBrush="{StaticResource CardBorder}"
+                        BorderThickness="0,1,0,0">
+                    <StackPanel>
+                        <TextBlock Text="SUMMONER"
+                                   Style="{StaticResource StatLabel}"
+                                   Margin="0,0,0,4"/>
+                        <TextBlock Text="{Binding SummonerName}"
+                                   FontSize="16"
+                                   FontWeight="SemiBold"
+                                   Foreground="{StaticResource PrimaryAccent}"/>
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </Border>
 
-                <!-- Content area -->
-                <ContentControl Content="{Binding CurrentView}"/>
-        </DockPanel>
+        <!-- Content area -->
+        <Border Background="{StaticResource WindowBackground}">
+            <ContentControl Content="{Binding CurrentView}"/>
+        </Border>
+    </DockPanel>
 </Window>

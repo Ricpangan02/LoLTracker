@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LoLTracker")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dba561eae9702bcda83d2342a575f99778861d1b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f049dfa81d81b7e40a4110fe734b846a64bc3da8")]
 [assembly: System.Reflection.AssemblyProductAttribute("LoLTracker")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LoLTracker")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

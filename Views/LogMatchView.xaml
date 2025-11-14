@@ -1,30 +1,122 @@
 <UserControl x:Class="LoLTracker.Views.LogMatchView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <Grid Margin="16">
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Background="Transparent">
+    <Grid Margin="24" Background="Transparent">
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <StackPanel Orientation="Horizontal"
-                    Margin="0,0,0,8">
-            <ComboBox Width="260"
-                      ItemsSource="{Binding Champions}"
-                      SelectedItem="{Binding SelectedChampion}"
-                      Margin="4"/>
-            <CheckBox Content="Win?"
-                      IsChecked="{Binding IsWin}"
-                      VerticalAlignment="Center"
-                      Margin="8,0"/>
-            <Button Content="Add Match"
-                    Command="{Binding AddMatchCommand}"
-                    Margin="8,0"/>
-        </StackPanel>
+        <!-- Header -->
+        <TextBlock Text="Log Match"
+                   Style="{StaticResource HeaderText}"
+                   Grid.Row="0"/>
 
-        <TextBox Grid.Row="1"
-                 Text="{Binding Notes}"
-                 AcceptsReturn="True"
-                 Height="160"/>
+        <!-- Form Card -->
+        <Border Grid.Row="1"
+                Background="{StaticResource CardBackground}"
+                BorderBrush="{StaticResource CardBorder}"
+                BorderThickness="1"
+                CornerRadius="8"
+                Padding="24"
+                Margin="0,0,0,24">
+            <Border.Effect>
+                <DropShadowEffect Color="#FF000000" Opacity="0.2" BlurRadius="8" ShadowDepth="2"/>
+            </Border.Effect>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <!-- Player Selection -->
+                <TextBlock Text="Player:"
+                           Style="{StaticResource SubHeaderText}"
+                           VerticalAlignment="Center"
+                           Margin="0,0,12,0"
+                           Grid.Row="0"
+                           Grid.Column="0"/>
+                <ComboBox Grid.Row="0"
+                          Grid.Column="1"
+                          Width="200"
+                          ItemsSource="{Binding PlayerNames}"
+                          SelectedItem="{Binding PlayerName}"
+                          Margin="0,0,24,0">
+                    <ComboBox.ToolTip>
+                        <TextBlock Text="Select a player"/>
+                    </ComboBox.ToolTip>
+                </ComboBox>
+
+                <!-- Champion Selection -->
+                <TextBlock Text="Champion:"
+                           Style="{StaticResource SubHeaderText}"
+                           VerticalAlignment="Center"
+                           Margin="0,0,12,0"
+                           Grid.Row="0"
+                           Grid.Column="2"/>
+                <ComboBox Grid.Row="0"
+                          Grid.Column="3"
+                          Width="200"
+                          ItemsSource="{Binding Champions}"
+                          SelectedItem="{Binding SelectedChampion}"
+                          Margin="0,0,24,0"/>
+
+                <!-- Win/Loss Toggle -->
+                <CheckBox Content="Victory"
+                          IsChecked="{Binding IsWin}"
+                          VerticalAlignment="Center"
+                          Grid.Row="0"
+                          Grid.Column="4"
+                          Margin="0,0,24,0"
+                          FontSize="14"
+                          FontWeight="Medium"/>
+
+                <!-- Submit Button -->
+                <Button Content="Add Match"
+                        Command="{Binding AddMatchCommand}"
+                        Grid.Row="0"
+                        Grid.Column="5"
+                        MinWidth="140"
+                        FontSize="14"/>
+
+                <!-- Notes Label -->
+                <TextBlock Text="Notes:"
+                           Style="{StaticResource SubHeaderText}"
+                           Margin="0,20,0,8"
+                           Grid.Row="1"
+                           Grid.Column="0"
+                           Grid.ColumnSpan="6"/>
+            </Grid>
+        </Border>
+
+        <!-- Notes TextBox -->
+        <Border Grid.Row="2"
+                Background="{StaticResource CardBackground}"
+                BorderBrush="{StaticResource CardBorder}"
+                BorderThickness="1"
+                CornerRadius="8"
+                Padding="0">
+            <Border.Effect>
+                <DropShadowEffect Color="#FF000000" Opacity="0.2" BlurRadius="8" ShadowDepth="2"/>
+            </Border.Effect>
+            <TextBox Text="{Binding Notes}"
+                     AcceptsReturn="True"
+                     TextWrapping="Wrap"
+                     VerticalScrollBarVisibility="Auto"
+                     Padding="16"
+                     BorderThickness="0"
+                     Background="Transparent"
+                     FontSize="13"/>
+        </Border>
     </Grid>
 </UserControl>
