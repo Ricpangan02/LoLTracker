@@ -1,0 +1,33 @@
+<UserControl x:Class="LoLTracker.Views.MatchHistoryView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid Margin="12">
+        <DataGrid ItemsSource="{Binding Matches}"
+                AutoGenerateColumns="False"
+                IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Date"
+                        Binding="{Binding Date, StringFormat=yyyy-MM-dd HH:mm}"
+                        Width="160"/>
+                <DataGridTextColumn Header="Champion"
+                        Binding="{Binding Champion}"
+                        Width="*"/>
+                <DataGridTextColumn Header="Result"
+                        Binding="{Binding IsWin, Converter={StaticResource BoolToResultConverter}}"/>
+                <DataGridTextColumn Header="Notes"
+                        Binding="{Binding Notes}"
+                        Width="2*"/>
+                <DataGridTemplateColumn Header="Actions"
+                        Width="120">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Delete"
+                                    Command="{Binding DataContext.DeleteCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                    CommandParameter="{Binding}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>
