@@ -46,13 +46,19 @@ namespace LoLTracker.ViewModels
             }
         }
 
-        private string _notes = string.Empty;
-        public string Notes
+        public ObservableCollection<string> GameModes { get; } = new()
         {
-            get => _notes;
+            "Bravery",
+            "Selected"
+        };
+
+        private string _selectedGameMode = "Selected";
+        public string SelectedGameMode
+        {
+            get => _selectedGameMode;
             set
             {
-                _notes = value;
+                _selectedGameMode = value;
                 OnPropertyChanged();
             }
         }
@@ -106,7 +112,7 @@ namespace LoLTracker.ViewModels
                 PlayerName = PlayerName.Trim(),
                 Champion = SelectedChampion,
                 IsWin = IsWin,
-                Notes = string.IsNullOrWhiteSpace(Notes) ? null : Notes,
+                GameMode = SelectedGameMode,
                 Date = DateTime.Now
             };
 
@@ -132,10 +138,6 @@ namespace LoLTracker.ViewModels
 
             // Update PlayerName to the trimmed version
             PlayerName = trimmedName;
-
-            // reset notes
-            Notes = string.Empty;
-            OnPropertyChanged(nameof(Notes));
         }
     }
 }

@@ -9,6 +9,6 @@ namespace LoLTracker.Models
         public string Champion { get; set; } = string.Empty;
         public bool IsWin { get; set; }
         public DateTime Date { get; set; }
-        public string? Notes { get; set; }
+        public string GameMode { get; set; } = string.Empty;
     }
 }

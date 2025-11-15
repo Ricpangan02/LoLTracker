@@ -7,20 +7,16 @@
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:LoLTracker.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\USER\\Desktop\\Project League\\LoLTracker\\MainWindows.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:MainWindows.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\USER\\Desktop\\Project League\\LoLTracker\\MainWindows.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:MainWindows.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\USER\\Desktop\\Project League\\LoLTracker\\App.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:App.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\USER\\Desktop\\Project League\\LoLTracker\\Views\\SettingsView.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Views\\SettingsView.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\USER\\Desktop\\Project League\\LoLTracker\\Views\\DashBoardView.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Views\\DashBoardView.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\USER\\Desktop\\Project League\\LoLTracker\\Views\\DashboardView.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Views\\DashboardView.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -39,50 +35,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "MainWindows.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\Project League\\LoLTracker\\MainWindows.xaml.cs",
-              "RelativeDocumentMoniker": "MainWindows.xaml.cs",
-              "ToolTip": "C:\\Users\\USER\\Desktop\\Project League\\LoLTracker\\MainWindows.xaml.cs",
-              "RelativeToolTip": "MainWindows.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-14T18:49:18.036Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "MainWindows.xaml",
-              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\Project League\\LoLTracker\\MainWindows.xaml",
-              "RelativeDocumentMoniker": "MainWindows.xaml",
-              "ToolTip": "C:\\Users\\USER\\Desktop\\Project League\\LoLTracker\\MainWindows.xaml",
-              "RelativeToolTip": "MainWindows.xaml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-11-14T18:48:59.28Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
               "Title": "App.xaml",
               "DocumentMoniker": "C:\\Users\\USER\\Desktop\\Project League\\LoLTracker\\App.xaml",
               "RelativeDocumentMoniker": "App.xaml",
               "ToolTip": "C:\\Users\\USER\\Desktop\\Project League\\LoLTracker\\App.xaml",
               "RelativeToolTip": "App.xaml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAqAAAAAAAAAA==",
+              "ViewState": "AgIAABYBAAAAAAAAAADwv0IBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-11-14T18:48:41.458Z"
+              "WhenOpened": "2025-11-15T09:38:29.533Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "SettingsView.xaml",
-              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\Project League\\LoLTracker\\Views\\SettingsView.xaml",
-              "RelativeDocumentMoniker": "Views\\SettingsView.xaml",
-              "ToolTip": "C:\\Users\\USER\\Desktop\\Project League\\LoLTracker\\Views\\SettingsView.xaml",
-              "RelativeToolTip": "Views\\SettingsView.xaml",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-11-14T18:47:25.932Z"
+              "DocumentIndex": 3,
+              "Title": "DashboardView.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\Project League\\LoLTracker\\Views\\DashboardView.xaml.cs",
+              "RelativeDocumentMoniker": "Views\\DashboardView.xaml.cs",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\Project League\\LoLTracker\\Views\\DashboardView.xaml.cs",
+              "RelativeToolTip": "Views\\DashboardView.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-15T09:09:31.361Z"
             },
             {
               "$type": "Document",
@@ -92,10 +65,22 @@
               "RelativeDocumentMoniker": "LoLTracker.csproj",
               "ToolTip": "C:\\Users\\USER\\Desktop\\Project League\\LoLTracker\\LoLTracker.csproj",
               "RelativeToolTip": "LoLTracker.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAKAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-11-14T18:41:32.914Z",
+              "WhenOpened": "2025-11-15T09:02:07.496Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DashBoardView.xaml",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\Project League\\LoLTracker\\Views\\DashBoardView.xaml",
+              "RelativeDocumentMoniker": "Views\\DashBoardView.xaml",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\Project League\\LoLTracker\\Views\\DashBoardView.xaml",
+              "RelativeToolTip": "Views\\DashBoardView.xaml",
+              "ViewState": "AgIAADwAAAAAAAAAAAAAAFcAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-11-15T08:58:02.45Z"
             }
           ]
         }

@@ -5,7 +5,7 @@
     <Grid Margin="24" Background="Transparent">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <!-- Header -->
@@ -13,14 +13,18 @@
                    Style="{StaticResource HeaderText}"
                    Grid.Row="0"/>
 
-        <!-- Settings Card -->
-        <Border Grid.Row="1"
-                Background="{StaticResource CardBackground}"
-                BorderBrush="{StaticResource CardBorder}"
-                BorderThickness="1"
-                CornerRadius="8"
-                Padding="32"
-                MaxWidth="500">
+        <!-- Scrollable Content -->
+        <ScrollViewer Grid.Row="1"
+                      VerticalScrollBarVisibility="Auto"
+                      HorizontalScrollBarVisibility="Disabled">
+            <!-- Settings Card -->
+            <Border Background="{StaticResource CardBackground}"
+                    BorderBrush="{StaticResource CardBorder}"
+                    BorderThickness="1"
+                    CornerRadius="8"
+                    Padding="32"
+                    MaxWidth="500"
+                    Margin="0,0,0,24">
             <Border.Effect>
                 <DropShadowEffect Color="#FF000000" Opacity="0.2" BlurRadius="8" ShadowDepth="2"/>
             </Border.Effect>
@@ -108,6 +112,26 @@
                         Background="{StaticResource CardBorder}"
                         Margin="0,0,0,32"/>
 
+                <!-- Data Import Section -->
+                <TextBlock Text="DATA IMPORT"
+                           Style="{StaticResource StatLabel}"
+                           Margin="0,0,0,8"/>
+                <TextBlock Text="Import match data from an Excel (.xlsx) file. Expected columns: PlayerName (optional), Champion, IsWin (true/false/win/victory), Date, GameMode (optional). The first row can be a header row."
+                           Foreground="{StaticResource TextSecondary}"
+                           FontSize="12"
+                           TextWrapping="Wrap"
+                           Margin="0,0,0,12"/>
+                <Button Content="📥 Import Data from Excel"
+                        Command="{Binding ImportDataCommand}"
+                        MinWidth="180"
+                        Margin="0,0,0,32"
+                        FontSize="14"/>
+
+                <!-- Divider -->
+                <Border Height="1"
+                        Background="{StaticResource CardBorder}"
+                        Margin="0,0,0,32"/>
+
                 <!-- Danger Zone -->
                 <TextBlock Text="DANGER ZONE"
                            Style="{StaticResource StatLabel}"
@@ -151,5 +175,6 @@
                 </Button>
             </StackPanel>
         </Border>
+        </ScrollViewer>
     </Grid>
 </UserControl>

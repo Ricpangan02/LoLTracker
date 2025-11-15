@@ -10,15 +10,33 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <!-- Header -->
-        <TextBlock Text="Dashboard"
-                   Style="{StaticResource HeaderText}"
-                   Grid.Row="0"/>
+        <!-- Header with Player Selector -->
+        <Grid Grid.Row="0" Margin="0,0,0,16">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Dashboard"
+                       Style="{StaticResource HeaderText}"
+                       Grid.Column="0"/>
+            <StackPanel Grid.Column="1"
+                        Orientation="Horizontal"
+                        VerticalAlignment="Center">
+                <TextBlock Text="Filter by Player:"
+                           Style="{StaticResource SubHeaderText}"
+                           VerticalAlignment="Center"
+                           Margin="0,0,12,0"/>
+                <ComboBox ItemsSource="{Binding PlayerNames}"
+                          SelectedItem="{Binding SelectedPlayer}"
+                          Width="200"
+                          MinWidth="150"/>
+            </StackPanel>
+        </Grid>
 
         <!-- Overall Stats Cards -->
         <UniformGrid Grid.Row="1"
                      Rows="1"
-                     Columns="5"
+                     Columns="7"
                      Margin="0,0,0,24">
             <!-- Wins Card -->
             <Border Background="{StaticResource CardBackground}"
@@ -107,7 +125,7 @@
                     BorderThickness="1"
                     CornerRadius="8"
                     Padding="20"
-                    Margin="0">
+                    Margin="0,0,12,0">
                 <Border.Effect>
                     <DropShadowEffect Color="#FF000000" Opacity="0.2" BlurRadius="8" ShadowDepth="2"/>
                 </Border.Effect>
@@ -119,6 +137,46 @@
                                FontSize="20"
                                FontWeight="Bold"
                                Foreground="{StaticResource TextSecondary}"/>
+                </StackPanel>
+            </Border>
+
+            <!-- Bravery Win Rate Card -->
+            <Border Background="{StaticResource CardBackground}"
+                    BorderBrush="{StaticResource CardBorder}"
+                    BorderThickness="1"
+                    CornerRadius="8"
+                    Padding="20"
+                    Margin="0,0,12,0">
+                <Border.Effect>
+                    <DropShadowEffect Color="#FF000000" Opacity="0.2" BlurRadius="8" ShadowDepth="2"/>
+                </Border.Effect>
+                <StackPanel>
+                    <TextBlock Text="BRAVERY WIN RATE"
+                               Style="{StaticResource StatLabel}"
+                               Margin="0,0,0,8"/>
+                    <TextBlock Text="{Binding BraveryWinRate, StringFormat='{}{0:N1}%'}"
+                               Style="{StaticResource StatValue}"
+                               Foreground="{StaticResource PrimaryAccent}"/>
+                </StackPanel>
+            </Border>
+
+            <!-- Selected Win Rate Card -->
+            <Border Background="{StaticResource CardBackground}"
+                    BorderBrush="{StaticResource CardBorder}"
+                    BorderThickness="1"
+                    CornerRadius="8"
+                    Padding="20"
+                    Margin="0">
+                <Border.Effect>
+                    <DropShadowEffect Color="#FF000000" Opacity="0.2" BlurRadius="8" ShadowDepth="2"/>
+                </Border.Effect>
+                <StackPanel>
+                    <TextBlock Text="SELECTED WIN RATE"
+                               Style="{StaticResource StatLabel}"
+                               Margin="0,0,0,8"/>
+                    <TextBlock Text="{Binding SelectedWinRate, StringFormat='{}{0:N1}%'}"
+                               Style="{StaticResource StatValue}"
+                               Foreground="{StaticResource PrimaryAccent}"/>
                 </StackPanel>
             </Border>
         </UniformGrid>

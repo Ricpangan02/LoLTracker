@@ -1,8 +1,11 @@
 using LoLTracker.Services;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Windows;
 using System.Windows.Input;
+using Microsoft.Win32;
 
 namespace LoLTracker.ViewModels
 {
@@ -37,6 +40,7 @@ namespace LoLTracker.ViewModels
         public ICommand ClearAllCommand { get; }
         public ICommand SaveCommand { get; }
         public ICommand AddPlayerCommand { get; }
+        public ICommand ImportDataCommand { get; }
 
         public SettingsViewModel(DatabaseService db, Action? onSaved = null)
         {
@@ -45,6 +49,7 @@ namespace LoLTracker.ViewModels
             ClearAllCommand = new RelayCommand(ClearAll);
             SaveCommand = new RelayCommand(SaveSettings);
             AddPlayerCommand = new RelayCommand(AddPlayer, CanAddPlayer);
+            ImportDataCommand = new RelayCommand(ImportData);
             
             // Load saved summoner name
             var savedName = _db.GetSetting("SummonerName");
@@ -119,6 +124,49 @@ namespace LoLTracker.ViewModels
         private void ClearAll()
         {
             _db.ClearAll();
+        }
+
+        private void ImportData(object? _)
+        {
+            var openFileDialog = new OpenFileDialog
+            {
+                Filter = "Excel files (*.xlsx)|*.xlsx|All files (*.*)|*.*",
+                Title = "Import Match Data"
+            };
+
+            if (openFileDialog.ShowDialog() == true)
+            {
+                try
+                {
+                    var (imported, failed, errors) = _db.ImportMatchesFromExcel(openFileDialog.FileName);
+                    
+                    var message = $"Import completed!\n\n" +
+                                 $"✓ Successfully imported: {imported} matches\n" +
+                                 $"✗ Failed: {failed} matches";
+
+                    if (errors.Count > 0)
+                    {
+                        var errorDetails = string.Join("\n", errors.Take(10));
+                        if (errors.Count > 10)
+                        {
+                            errorDetails += $"\n... and {errors.Count - 10} more errors";
+                        }
+                        message += $"\n\nErrors:\n{errorDetails}";
+                    }
+
+                    MessageBox.Show(message, 
+                                   imported > 0 ? "Import Successful" : "Import Completed", 
+                                   MessageBoxButton.OK, 
+                                   imported > 0 ? MessageBoxImage.Information : MessageBoxImage.Warning);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error importing data: {ex.Message}", 
+                                   "Import Error", 
+                                   MessageBoxButton.OK, 
+                                   MessageBoxImage.Error);
+                }
+            }
         }
     }
 }

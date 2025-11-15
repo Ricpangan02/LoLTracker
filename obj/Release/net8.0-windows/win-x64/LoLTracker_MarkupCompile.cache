@@ -1,0 +1,20 @@
+﻿LoLTracker
+
+
+winexe
+C#
+.cs
+C:\Users\USER\Desktop\Project League\LoLTracker\obj\Release\net8.0-windows\win-x64\
+LoLTracker
+none
+false
+TRACE;RELEASE;NET;NET8_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
+C:\Users\USER\Desktop\Project League\LoLTracker\App.xaml
+6294962639
+
+21-1977946321
+212318776395
+MainWindow.xaml;Views\ChampionListView.xaml;Views\DashBoardView.xaml;Views\LogMatchView.xaml;Views\MatchHistoryView.xaml;Views\SettingsView.xaml;
+
+False
+

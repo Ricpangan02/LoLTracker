@@ -5,8 +5,6 @@
     <Grid Margin="24" Background="Transparent">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <!-- Header -->
@@ -33,9 +31,10 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
@@ -81,42 +80,28 @@
                           FontSize="14"
                           FontWeight="Medium"/>
 
+                <!-- Game Mode Selection -->
+                <TextBlock Text="Game Mode:"
+                           Style="{StaticResource SubHeaderText}"
+                           VerticalAlignment="Center"
+                           Margin="0,0,12,0"
+                           Grid.Row="0"
+                           Grid.Column="5"/>
+                <ComboBox Grid.Row="0"
+                          Grid.Column="6"
+                          Width="200"
+                          ItemsSource="{Binding GameModes}"
+                          SelectedItem="{Binding SelectedGameMode}"
+                          Margin="0,0,24,0"/>
+
                 <!-- Submit Button -->
                 <Button Content="Add Match"
                         Command="{Binding AddMatchCommand}"
                         Grid.Row="0"
-                        Grid.Column="5"
+                        Grid.Column="7"
                         MinWidth="140"
                         FontSize="14"/>
-
-                <!-- Notes Label -->
-                <TextBlock Text="Notes:"
-                           Style="{StaticResource SubHeaderText}"
-                           Margin="0,20,0,8"
-                           Grid.Row="1"
-                           Grid.Column="0"
-                           Grid.ColumnSpan="6"/>
             </Grid>
-        </Border>
-
-        <!-- Notes TextBox -->
-        <Border Grid.Row="2"
-                Background="{StaticResource CardBackground}"
-                BorderBrush="{StaticResource CardBorder}"
-                BorderThickness="1"
-                CornerRadius="8"
-                Padding="0">
-            <Border.Effect>
-                <DropShadowEffect Color="#FF000000" Opacity="0.2" BlurRadius="8" ShadowDepth="2"/>
-            </Border.Effect>
-            <TextBox Text="{Binding Notes}"
-                     AcceptsReturn="True"
-                     TextWrapping="Wrap"
-                     VerticalScrollBarVisibility="Auto"
-                     Padding="16"
-                     BorderThickness="0"
-                     Background="Transparent"
-                     FontSize="13"/>
         </Border>
     </Grid>
 </UserControl>

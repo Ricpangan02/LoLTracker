@@ -60,8 +60,8 @@
                             </Style>
                         </DataGridTextColumn.ElementStyle>
                     </DataGridTextColumn>
-                    <DataGridTextColumn Header="Notes"
-                                        Binding="{Binding Notes}"
+                    <DataGridTextColumn Header="Game Mode"
+                                        Binding="{Binding GameMode}"
                                         Width="2*"/>
                     <DataGridTemplateColumn Header="Actions"
                                             Width="120">
